@@ -46,7 +46,7 @@ let dogQueue = new Queue();
 const helpers = {
   peek: queue => {
     if (queue.first) {
-      return queue.first;
+      return queue.first.data;
     }
   }
 };
