@@ -44,13 +44,13 @@ app.get('/api/dog', (req, res) => {
 });
 
 app.delete('/api/cat', (req, res) => {
-  catData.shift();
+  cats.dequeue();
   res.status(204).end();
 
 });
 
 app.delete('/api/dog', (req, res) => {
-  dogData.shift();
+  dogs.dequeue();
   res.status(204).end();
 });
 
