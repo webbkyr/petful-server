@@ -28,6 +28,7 @@ app.get('/api/cat', (req, res) => {
 });
 
 app.get('/api/dog', (req, res) => {
+
   res.json(dogData[0]);
 });
 

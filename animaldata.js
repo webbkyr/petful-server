@@ -11,8 +11,8 @@ const catData = [
     story: 'Thrown on the street'
   },
   {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-    imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
+    imageURL: 'https://i.imgur.com/RdextKT.jpg',
+    imageDescription: 'A suspicious cat.',
     name: 'Princess',
     sex: 'Female',
     age: 5,
@@ -20,12 +20,12 @@ const catData = [
     story: 'Found in an alley'
   },
   {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-    imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
+    imageURL: 'https://i.imgur.com/UHYngUA.jpg',
+    imageDescription: 'An orange cat with his mouth open',
     name: 'Night',
     sex: 'Male',
     age: 1,
-    breed: 'Siamese',
+    breed: 'Orange',
     story: 'Found in an alley'
   }    
 ];
@@ -41,21 +41,30 @@ const dogData = [
     story: 'Owner Passed away'
   },
   {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-    imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
+    imageURL: 'https://i.imgur.com/xyPtn4m.jpg',
+    imageDescription: 'Sleeping retreiver.',
     name: 'Bailey',
     sex: 'Female',
-    age: 1,
-    breed: 'Beagle',
+    age: 0,
+    breed: 'Labrador Retriever',
     story: 'Abandoned'
   },
   {
-    imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
-    imageDescription: 'A smiling golden-brown golden retreiver listening to music.',
+    imageURL: 'https://i.imgur.com/JR6noxf.jpg',
+    imageDescription: 'A confused lab with head cocked to the side',
     name: 'Hunter',
     sex: 'Male',
-    age: 4,
-    breed: 'Pitbull mix',
+    age: 1,
+    breed: 'Labrador Retriever',
+    story: 'Owner passed away'
+  },
+  {
+    imageURL: 'https://i.imgur.com/f6nA4Zz.png',
+    imageDescription: 'A husky looking into the camera',
+    name: 'Lonnie',
+    sex: 'Male',
+    age: 1,
+    breed: 'Siberian Husky',
     story: 'Owner passed away'
   },
 ];
