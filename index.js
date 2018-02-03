@@ -8,7 +8,7 @@ const {PORT, CLIENT_ORIGIN} = require('./config');
 const {dbConnect} = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
-const {catData, dogData} = require('./animaldata');
+const {catData, dogData, cats, dogs, helpers} = require('./animaldata');
 const app = express();
 
 app.use(
@@ -24,6 +24,8 @@ app.use(
 );
 
 app.get('/api/cat', (req, res) => {
+  // console.log('PEEK',helpers.peek(cats));
+  // console.log('cats.first',cats.first);
   const message = 'Sorry, no animals available.';
   if (!catData[0]) {
     res.json({message});
