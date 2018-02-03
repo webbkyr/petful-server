@@ -35,7 +35,7 @@ app.get('/api/cat', (req, res) => {
 
   const message = 'Sorry, no cats available.';
   if (helpers.peek(catQueue)) {
-    res.json(catQueue.first.data);
+    return res.json(catQueue.first.data);
   } 
   else {
     res.json({message});
@@ -47,7 +47,7 @@ app.get('/api/dog', (req, res) => {
 
   const message = 'Sorry, no dogs available.';
   if (helpers.peek(dogQueue)) {
-    res.json(dogQueue.first.data); 
+    return res.json(dogQueue.first.data); 
   } 
   else {
     res.json({message});
