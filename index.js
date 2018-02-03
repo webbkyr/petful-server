@@ -24,23 +24,22 @@ app.use(
 );
 
 app.get('/api/cat', (req, res) => {
-  // console.log('PEEK',helpers.peek(cats));
-  // console.log('cats.first',cats.first);
-  const message = 'Sorry, no animals available.';
-  if (!catData[0]) {
+  const message = 'Sorry, no cats available.';
+  if (helpers.peek(cats)) {
+    res.json(cats.first.data);
+  } 
+  else {
     res.json({message});
   }
-  else {
-    res.json(catData[0]);
-  }});
+});
 
 app.get('/api/dog', (req, res) => {
-  const message = 'Sorry, no animals available.';
-  if (!dogData[0]) {
-    res.json({message});
-  }
+  const message = 'Sorry, no dogs available.';
+  if (helpers.peek(dogs)) {
+    res.json(dogs.first.data); 
+  } 
   else {
-    res.json(dogData[0]);
+    res.json({message});
   }
 });
 
