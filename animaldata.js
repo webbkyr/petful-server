@@ -1,5 +1,78 @@
 'use strict';
 
+class _Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+  }
+
+  enqueue(data) {
+    const animal = new _Node(data);
+    if (this.first === null) {
+      this.first = animal;
+    }
+    if (this.last) {
+      animal.next = this.last;
+      this.last.prev = animal;
+    }
+    this.last = animal;
+  }
+
+  dequeue(data) {
+    if (this.first === null) {
+      return;
+    }
+    const animal = this.first;
+    this.first = animal.prev;
+
+    if (animal === this.last) {
+      this.last = null;
+    }
+    return animal.data;
+  }
+}
+
+let cats = new Queue();
+let dogs = new Queue();
+
+const helpers = {
+  peek: queue => {
+    if (queue.first) {
+      return queue.first;
+    }
+  }
+};
+
+cats.enqueue({
+  imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',
+  imageDescription: 'Orange bengal cat with black stripes lounging on concrete.',
+  name: 'Fluffy',
+  sex: 'Female',
+  age: 2,
+  breed: 'Bengal',
+  story: 'Thrown on the street'
+});
+
+cats.enqueue( {
+  imageURL: 'https://i.imgur.com/RdextKT.jpg',
+  imageDescription: 'A suspicious cat.',
+  name: 'Princess',
+  sex: 'Female',
+  age: 5,
+  breed: 'Persian',
+  story: 'Found in an alley'
+});
+
+console.log(cats.first.data);
+
 const catData = [
   {
     imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg',

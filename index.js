@@ -24,12 +24,22 @@ app.use(
 );
 
 app.get('/api/cat', (req, res) => {
-  res.json(catData[0]);
-});
+  const message = 'Sorry, no animals available.';
+  if (!catData[0]) {
+    res.json({message});
+  }
+  else {
+    res.json(catData[0]);
+  }});
 
 app.get('/api/dog', (req, res) => {
-
-  res.json(dogData[0]);
+  const message = 'Sorry, no animals available.';
+  if (!dogData[0]) {
+    res.json({message});
+  }
+  else {
+    res.json(dogData[0]);
+  }
 });
 
 app.delete('/api/cat', (req, res) => {
