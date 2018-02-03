@@ -8,7 +8,9 @@ const {PORT, CLIENT_ORIGIN} = require('./config');
 const {dbConnect} = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
-const {catData, dogData, cats, dogs, helpers} = require('./animaldata');
+//import the two queues and the helper function
+const {catQueue, theCats, dogQueue, theDogs, helpers} = require('./animaldata');
+
 const app = express();
 
 app.use(
@@ -23,10 +25,17 @@ app.use(
   })
 );
 
+const rePopulate = (queue, data) => {
+  data.forEach(animal => queue.enqueue(animal));
+  return queue;
+};
+
 app.get('/api/cat', (req, res) => {
+  rePopulate(catQueue, theCats);
+
   const message = 'Sorry, no cats available.';
-  if (helpers.peek(cats)) {
-    res.json(cats.first.data);
+  if (helpers.peek(catQueue)) {
+    res.json(catQueue.first.data);
   } 
   else {
     res.json({message});
@@ -34,9 +43,11 @@ app.get('/api/cat', (req, res) => {
 });
 
 app.get('/api/dog', (req, res) => {
+  rePopulate(dogQueue, theDogs);
+
   const message = 'Sorry, no dogs available.';
-  if (helpers.peek(dogs)) {
-    res.json(dogs.first.data); 
+  if (helpers.peek(dogQueue)) {
+    res.json(dogQueue.first.data); 
   } 
   else {
     res.json({message});
@@ -44,13 +55,13 @@ app.get('/api/dog', (req, res) => {
 });
 
 app.delete('/api/cat', (req, res) => {
-  cats.dequeue();
+  catQueue.dequeue();
   res.status(204).end();
 
 });
 
 app.delete('/api/dog', (req, res) => {
-  dogs.dequeue();
+  dogQueue.dequeue();
   res.status(204).end();
 });
 
